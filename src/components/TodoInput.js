@@ -9,9 +9,11 @@ const getCurrentDate = () => {
   return `${year}-${month}-${day}`;
 };
 
-const TodoInput = ({ isDarkMode }) => {
+const TodoInput = (/*{ isDarkMode }*/) => {
   const [todoTitle, setTodoTitle] = useState("");
   const [dueDate, setDueDate] = useState(getCurrentDate());
+
+  const isDarkMode = store.getState().isDarkMode;
   
   const handleTodoTitleChange = (e) => {
     setTodoTitle(e.target.value);

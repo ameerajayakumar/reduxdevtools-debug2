@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import TodoListItem from "./TodoListItem";
 import TodoMenu from "./TodoMenu";
+import store from "../todoStore";
 
-const TodoList = ({ todos, isDarkMode }) => {
+const TodoList = ({ todos, /*isDarkMode*/ }) => {
   const [filteredTodos, setFilteredTodos] = useState([])
+
+  const isDarkMode = store.getState().isDarkMode;
 
   useEffect(() => {
     const handleFilterTodos = (todos, filterStatus) => {

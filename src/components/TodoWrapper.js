@@ -4,17 +4,17 @@ import TodoList from "./TodoList";
 
 import data from "../data/initialTodos"
 
-const TodoWrapper = ({ isDarkMode }) => {
+const TodoWrapper = (/*{ isDarkMode }*/) => {
   const [todos, setTodos] = useState(data);
 
   return (
     <>
       <TodoInput
-        isDarkMode={isDarkMode} 
+        // isDarkMode={isDarkMode} 
         />
       <TodoList
         todos={todos}
-        isDarkMode={isDarkMode} 
+        // isDarkMode={isDarkMode} 
         />
     </>
   );
