@@ -1,17 +1,25 @@
-const createStore = (initialState, handler) => {
-    const state = initialState;
+const createStore = (initialState, reducer) => {
+    let state = initialState;
 
-    const subscribers = []
+    const subscribers = [];
 
     const getState = () => {
         return state;
     }
 
-    const dispatch = () => {
-        console.log('Invoked Dispatch');
-        handler(state);
+    // const dispatch = () => {
+    //     console.log('Invoked Dispatch');
+    //     handler(state);
+    //     subscribers.forEach(callback => callback());
+    // }
+
+    const dispatch = (action) => {
+        console.log('Invoked dispatch()', action);
+        state = reducer(state, action);
+        console.log(state);
         subscribers.forEach(callback => callback());
     }
+    
 
     const subscribe = (callback) => {
         subscribers.push(callback);

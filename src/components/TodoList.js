@@ -4,9 +4,10 @@ import TodoMenu from "./TodoMenu";
 import store from "../todoStore";
 
 const TodoList = ({ todos, /*isDarkMode*/ }) => {
-  const [filteredTodos, setFilteredTodos] = useState([])
+  const [filteredTodos, setFilteredTodos] = useState([]);
 
   const isDarkMode = store.getState().isDarkMode;
+  console.log('Getting mode in TodoList', isDarkMode);
 
   useEffect(() => {
     const handleFilterTodos = (todos, filterStatus) => {
@@ -23,8 +24,14 @@ const TodoList = ({ todos, /*isDarkMode*/ }) => {
       }
     };
 
-    handleFilterTodos(todos, "all")
-  }, [])
+    let filterStatus = store.getState().filterStatus;
+    handleFilterTodos(todos, filterStatus);
+
+    store.subscribe(() => {
+      let {filterStatus} = store.getState();
+      handleFilterTodos(todos, filterStatus);
+    });
+  }, []);
 
   return (
     <>
