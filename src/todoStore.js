@@ -5,8 +5,6 @@ const initialState = {
     filterStatus: "all"
 }
 
-console.log('Running todoStore');
-
 // const toggleDarkMode = (state) => {
 //     console.log(state.isDarkMode);
 //     state.isDarkMode = !(state.isDarkMode);

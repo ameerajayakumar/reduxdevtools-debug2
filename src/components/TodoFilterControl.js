@@ -12,7 +12,6 @@ const TodoFilterControl = () => {
     // let filterStatus = "all";
     // let filterStatus = store.getState().filterStatus;
     let [filterStatus, setFilterStatus] = useState(store.getState().filterStatus);
-    console.log(filterStatus);
 
     useEffect(() => {
         store.subscribe(() => {setFilterStatus(store.getState().filterStatus)})

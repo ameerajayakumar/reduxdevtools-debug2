@@ -7,7 +7,6 @@ import store from "./todoStore";
 export default function App() {
   // const [isDarkMode, setIsDarkMode] = useState(false);
   const isDarkMode = store.getState().isDarkMode;
-  console.log('Getting mode in App', isDarkMode);
 
   const themeClass = isDarkMode ? "dark" : "light";
 

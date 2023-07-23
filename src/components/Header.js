@@ -6,7 +6,6 @@ import store from "../todoStore";
 const Header = () => {
 
   const isDarkMode = store.getState().isDarkMode;
-  console.log('Getting mode in Header', isDarkMode);
   
   const getThemeIcon = (isDarkMode) => {
     return isDarkMode ? SwitchToLightIcon : SwitchToDarkIcon;

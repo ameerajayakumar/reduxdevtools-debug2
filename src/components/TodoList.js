@@ -3,11 +3,14 @@ import TodoListItem from "./TodoListItem";
 import TodoMenu from "./TodoMenu";
 import store from "../todoStore";
 
-const TodoList = ({ todos, /*isDarkMode*/ }) => {
+import data from "../data/initialTodos"
+
+const TodoList = ({ /*isDarkMode*/ }) => {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
+  const [todos, setTodos] = useState(data);
+
   const isDarkMode = store.getState().isDarkMode;
-  console.log('Getting mode in TodoList', isDarkMode);
 
   useEffect(() => {
     const handleFilterTodos = (todos, filterStatus) => {
@@ -19,7 +22,7 @@ const TodoList = ({ todos, /*isDarkMode*/ }) => {
           setFilteredTodos(todos.filter((todo) => todo.completed));
           break  
         default:
-          setFilteredTodos(todos)
+          setFilteredTodos([...todos]) 
           break
       }
     };
