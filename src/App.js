@@ -6,7 +6,7 @@ import store from "./todoStore";
 
 export default function App() {
   // const [isDarkMode, setIsDarkMode] = useState(false);
-  const isDarkMode = store.getState().isDarkMode;
+  const isDarkMode = store.getState().preferencesReducer.isDarkMode;
 
   const themeClass = isDarkMode ? "dark" : "light";
 

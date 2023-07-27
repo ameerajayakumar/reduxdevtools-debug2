@@ -10,7 +10,7 @@ const TodoList = ({ /*isDarkMode*/ }) => {
 
   const [todos, setTodos] = useState(data);
 
-  const isDarkMode = store.getState().isDarkMode;
+  const isDarkMode = store.getState().preferencesReducer.isDarkMode;
 
   useEffect(() => {
     const handleFilterTodos = (todos, filterStatus) => {
@@ -27,11 +27,11 @@ const TodoList = ({ /*isDarkMode*/ }) => {
       }
     };
 
-    let filterStatus = store.getState().filterStatus;
+    let filterStatus = store.getState().todoReducer.filterStatus;
     handleFilterTodos(todos, filterStatus);
 
     store.subscribe(() => {
-      let {filterStatus} = store.getState();
+      let {filterStatus} = store.getState().todoReducer;
       handleFilterTodos(todos, filterStatus);
     });
   }, []);

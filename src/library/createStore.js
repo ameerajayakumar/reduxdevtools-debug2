@@ -1,5 +1,6 @@
-const createStore = (initialState, reducer) => {
-    let state = initialState;
+const createStore = (/*initialState,*/ reducer) => {
+    // let state = initialState;
+    let state;
 
     const subscribers = [];
 
@@ -19,7 +20,8 @@ const createStore = (initialState, reducer) => {
         console.log(state);
         subscribers.forEach(callback => callback());
     }
-    
+
+    dispatch({});
 
     const subscribe = (callback) => {
         subscribers.push(callback);

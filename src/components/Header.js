@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import SwitchToDarkIcon from "../images/icon-moon.svg";
 import SwitchToLightIcon from "../images/icon-sun.svg";
 import store from "../todoStore";
+// import { toggleDarkMode } from "../todoStore";
+import { toggleDarkMode } from "../actions";
+
 
 const Header = () => {
 
-  const isDarkMode = store.getState().isDarkMode;
+  const isDarkMode = store.getState().preferencesReducer.isDarkMode;
   
   const getThemeIcon = (isDarkMode) => {
     return isDarkMode ? SwitchToLightIcon : SwitchToDarkIcon;
@@ -14,14 +17,14 @@ const Header = () => {
 
   useEffect(() => {
     store.subscribe(() => {
-      let isDarkMode = store.getState().isDarkMode;
+      let isDarkMode = store.getState().preferencesReducer.isDarkMode;
       document.getElementById("themeIcon").src = getThemeIcon(isDarkMode);
     })
   }, [])
 
   const changeTheme = () => {
     // setIsDarkMode(!isDarkMode);
-    store.dispatch({type: "TOGGLE_DARK_MODE"});
+    store.dispatch(toggleDarkMode());
   };
 
   return (
