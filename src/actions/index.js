@@ -5,5 +5,5 @@ export const toggleDarkMode = () => {
 }
   
 export const changeFilterStatus = (id) => {
-    return{ type: CHANGE_FILTER_STATUS, status: id }
+    return{ type: CHANGE_FILTER_STATUS, payload: id }
 }
