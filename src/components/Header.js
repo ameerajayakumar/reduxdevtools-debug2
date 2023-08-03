@@ -19,8 +19,8 @@ const Header = () => {
     store.subscribe(() => {
       let isDarkMode = store.getState().preferencesReducer.isDarkMode;
       document.getElementById("themeIcon").src = getThemeIcon(isDarkMode);
-    })
-  }, [])
+    });
+  }, []);
 
   const changeTheme = () => {
     // setIsDarkMode(!isDarkMode);
