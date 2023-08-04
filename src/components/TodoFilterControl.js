@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import store from "../todoStore"
 // import {changeFilterStatus} from "../todoStore";
 import {changeFilterStatus} from "../actions";
+import { useSelector } from "react-redux";
 
 
 let statuses = [
@@ -14,11 +15,12 @@ let statuses = [
 const TodoFilterControl = () => {
     // let filterStatus = "all";
     // let filterStatus = store.getState().filterStatus;
-    let [filterStatus, setFilterStatus] = useState(store.getState().todoReducer.filterStatus);
+    // let [filterStatus, setFilterStatus] = useState(store.getState().todoReducer.filterStatus);
+    const filterStatus = useSelector(state => state.todoReducer.filterStatus);
 
-    useEffect(() => {
-        store.subscribe(() => {setFilterStatus(store.getState().todoReducer.filterStatus)})
-    }, []);
+    // useEffect(() => {
+    //     store.subscribe(() => {setFilterStatus(store.getState().todoReducer.filterStatus)})
+    // }, []);
 
     return (
         <div className="control-btn group">

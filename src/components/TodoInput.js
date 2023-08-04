@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import store  from "../todoStore";
 
 const getCurrentDate = () => {
@@ -13,7 +14,8 @@ const TodoInput = (/*{ isDarkMode }*/) => {
   const [todoTitle, setTodoTitle] = useState("");
   const [dueDate, setDueDate] = useState(getCurrentDate());
 
-  const isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  // const isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
   
   const handleTodoTitleChange = (e) => {
     setTodoTitle(e.target.value);

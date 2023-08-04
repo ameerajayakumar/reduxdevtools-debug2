@@ -4,13 +4,16 @@ import TodoMenu from "./TodoMenu";
 import store from "../todoStore";
 
 import data from "../data/initialTodos"
+import { useSelector } from "react-redux";
 
 const TodoList = ({ /*isDarkMode*/ }) => {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   const [todos, setTodos] = useState(data);
 
-  const isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  // const isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
+  const filterStatus = useSelector(state => state.todoReducer.filterStatus);
 
   useEffect(() => {
     const handleFilterTodos = (todos, filterStatus) => {
@@ -27,14 +30,15 @@ const TodoList = ({ /*isDarkMode*/ }) => {
       }
     };
 
-    let filterStatus = store.getState().todoReducer.filterStatus;
+    // let filterStatus = store.getState().todoReducer.filterStatus;
+    
     handleFilterTodos(todos, filterStatus);
 
-    store.subscribe(() => {
-      let {filterStatus} = store.getState().todoReducer;
-      handleFilterTodos(todos, filterStatus);
-    });
-  }, []);
+    // store.subscribe(() => {
+    //   let {filterStatus} = store.getState().todoReducer;
+    //   handleFilterTodos(todos, filterStatus);
+    // });
+  }, [filterStatus]);
 
   return (
     <>

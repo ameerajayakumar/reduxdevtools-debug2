@@ -4,23 +4,25 @@ import SwitchToLightIcon from "../images/icon-sun.svg";
 import store from "../todoStore";
 // import { toggleDarkMode } from "../todoStore";
 import { toggleDarkMode } from "../actions";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
 
-  const isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  // const isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
   
   const getThemeIcon = (isDarkMode) => {
     return isDarkMode ? SwitchToLightIcon : SwitchToDarkIcon;
   }
   let themeIcon = getThemeIcon(isDarkMode);
 
-  useEffect(() => {
-    store.subscribe(() => {
-      let isDarkMode = store.getState().preferencesReducer.isDarkMode;
-      document.getElementById("themeIcon").src = getThemeIcon(isDarkMode);
-    });
-  }, []);
+  // useEffect(() => {
+  //   // store.subscribe(() => {
+  //   //   let isDarkMode = store.getState().preferencesReducer.isDarkMode;
+  //   //   document.getElementById("themeIcon").src = getThemeIcon(isDarkMode);
+  //   // });
+  // }, []);
 
   const changeTheme = () => {
     // setIsDarkMode(!isDarkMode);
