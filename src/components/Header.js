@@ -5,12 +5,15 @@ import store from "../todoStore";
 // import { toggleDarkMode } from "../todoStore";
 import { toggleDarkMode } from "../actions";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 
 const Header = () => {
 
   // const isDarkMode = store.getState().preferencesReducer.isDarkMode;
   const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
+
+  const dispatch = useDispatch();
   
   const getThemeIcon = (isDarkMode) => {
     return isDarkMode ? SwitchToLightIcon : SwitchToDarkIcon;
@@ -26,7 +29,8 @@ const Header = () => {
 
   const changeTheme = () => {
     // setIsDarkMode(!isDarkMode);
-    store.dispatch(toggleDarkMode());
+    // store.dispatch(toggleDarkMode());
+    dispatch(toggleDarkMode());
   };
 
   return (

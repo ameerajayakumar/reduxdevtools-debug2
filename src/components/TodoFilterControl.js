@@ -4,6 +4,7 @@ import store from "../todoStore"
 // import {changeFilterStatus} from "../todoStore";
 import {changeFilterStatus} from "../actions";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 
 let statuses = [
@@ -18,6 +19,8 @@ const TodoFilterControl = () => {
     // let [filterStatus, setFilterStatus] = useState(store.getState().todoReducer.filterStatus);
     const filterStatus = useSelector(state => state.todoReducer.filterStatus);
 
+    const dispatch = useDispatch();
+
     // useEffect(() => {
     //     store.subscribe(() => {setFilterStatus(store.getState().todoReducer.filterStatus)})
     // }, []);
@@ -29,7 +32,8 @@ const TodoFilterControl = () => {
                     <button
                         id={status.id}
                         className={filterStatus === status.id ? "btn active" : "btn"}
-                        onClick={() => store.dispatch(changeFilterStatus(status.id))}
+                        // onClick={() => store.dispatch(changeFilterStatus(status.id))}
+                        onClick={() => dispatch(changeFilterStatus(status.id))}
                         key={idx}
                     >
                         {status.title}
