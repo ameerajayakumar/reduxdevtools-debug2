@@ -14,7 +14,6 @@ const TodoInput = (/*{ isDarkMode }*/) => {
   const [todoTitle, setTodoTitle] = useState("");
   const [dueDate, setDueDate] = useState(getCurrentDate());
 
-  // const isDarkMode = store.getState().preferencesReducer.isDarkMode;
   const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
   
   const handleTodoTitleChange = (e) => {
