@@ -6,12 +6,11 @@ import store from "../todoStore";
 import data from "../data/initialTodos"
 import { useSelector } from "react-redux";
 
-const TodoList = ({ /*isDarkMode*/ }) => {
+const TodoList = () => {
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   const [todos, setTodos] = useState(data);
 
-  // const isDarkMode = store.getState().preferencesReducer.isDarkMode;
   const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
   const filterStatus = useSelector(state => state.todoReducer.filterStatus);
 
@@ -29,15 +28,8 @@ const TodoList = ({ /*isDarkMode*/ }) => {
           break
       }
     };
-
-    // let filterStatus = store.getState().todoReducer.filterStatus;
     
     handleFilterTodos(todos, filterStatus);
-
-    // store.subscribe(() => {
-    //   let {filterStatus} = store.getState().todoReducer;
-    //   handleFilterTodos(todos, filterStatus);
-    // });
   }, [filterStatus]);
 
   return (
