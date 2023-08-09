@@ -14,10 +14,7 @@ const TodoMenu = ({ todos }) => {
       <div className="todos-count">{leftTodoCount} items left</div>
 
       <div className="control-btn group filter-control-for-desktop">
-        <TodoFilterControl
-        // filterStatus={filterStatus}
-        // setFilterStatus={setFilterStatus}
-        />
+        <TodoFilterControl/>
       </div>
 
       {/* <div className="control-btn">

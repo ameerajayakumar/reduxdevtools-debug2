@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 
-const TodoWrapper = (/*{ isDarkMode }*/) => {
+const TodoWrapper = () => {
 
   return (
     <>
-      <TodoInput
-        // isDarkMode={isDarkMode} 
-        />
-      <TodoList
-        // isDarkMode={isDarkMode} 
-        />
+      <TodoInput/>
+      <TodoList/>
     </>
   );
 };
