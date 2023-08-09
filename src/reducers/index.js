@@ -1,10 +1,10 @@
 import {preferencesReducer} from "./preferencesReducer"
 import {todoReducer} from "./todoReducer"
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 
-const reducerMappings = {
+export const reducersMapping = {
   "preferencesReducer": preferencesReducer,
   "todoReducer": todoReducer
 }
 
-export const rootReducer = combineReducers(reducerMappings)
+// export const rootReducer = combineReducers(reducersMapping)

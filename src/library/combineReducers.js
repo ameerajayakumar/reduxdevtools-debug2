@@ -1,13 +1,13 @@
-export const combineReducers = (reducerMappings) => {
+export const combineReducers = (reducersMapping) => {
     const initialState = {}
    
-    Object.keys(reducerMappings).forEach(id => initialState[id] = undefined)
+    Object.keys(reducersMapping).forEach(id => initialState[id] = undefined)
     console.log(initialState)
   
     const combinedReducer = (state = initialState, action) => {
         let newState = { ...state }
   
-        Object.entries(reducerMappings).forEach(([id, reducer]) => {
+        Object.entries(reducersMapping).forEach(([id, reducer]) => {
             newState[id] = reducer(newState[id], action)
             console.log(newState)
         })
