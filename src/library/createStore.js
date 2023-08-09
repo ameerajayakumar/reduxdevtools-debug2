@@ -1,5 +1,4 @@
-const createStore = (/*initialState,*/ reducer) => {
-    // let state = initialState;
+const createStore = (reducer) => {
     let state;
 
     const subscribers = [];
@@ -7,12 +6,6 @@ const createStore = (/*initialState,*/ reducer) => {
     const getState = () => {
         return state;
     }
-
-    // const dispatch = () => {
-    //     console.log('Invoked Dispatch');
-    //     handler(state);
-    //     subscribers.forEach(callback => callback());
-    // }
 
     const dispatch = (action) => {
         console.log('Invoked dispatch()', action);
