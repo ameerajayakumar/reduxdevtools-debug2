@@ -2,6 +2,7 @@
 // import { rootReducer } from "./reducers";
 import { configureStore } from "@reduxjs/toolkit";
 import { reducersMapping } from "./reducers";
+import preferencesSlice from "./slices/preferencesSlice";
 
   
 // const store = createStore(rootReducer);
