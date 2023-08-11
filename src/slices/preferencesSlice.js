@@ -4,6 +4,11 @@ const preferencesSlice = createSlice({
     name: "preferencesReducer",
     initialState: {
         isDarkMode: false
+    },
+    reducers: {
+        toggleDarkMode: (state, action) => { 
+            state.isDarkMode = !state.isDarkMode 
+        }
     }
 });
 
