@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import SwitchToDarkIcon from "../images/icon-moon.svg";
 import SwitchToLightIcon from "../images/icon-sun.svg";
 import store from "../todoStore";
-import { toggleDarkMode } from "../actions";
+// import { toggleDarkMode } from "../actions";
+import { toggleDarkMode } from "../slices/preferencesSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 

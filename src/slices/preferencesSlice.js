@@ -15,4 +15,8 @@ const preferencesSlice = createSlice({
 console.log(preferencesSlice);
 console.log(preferencesSlice.getInitialState());
 
-export default preferencesSlice;
+// export default preferencesSlice;
+
+export const { toggleDarkMode } = preferencesSlice.actions;
+
+export default preferencesSlice.reducer;
