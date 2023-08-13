@@ -14,7 +14,7 @@ export default function App() {
         <div className="container">
           <Header/>
           <main>
-            {/* <TodoWrapper/> */}
+            <TodoWrapper/>
           </main>
         </div>
       </div>
