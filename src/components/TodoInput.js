@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { addTodo } from "../slices/todoSlice";
 import store  from "../todoStore";
 
 const getCurrentDate = () => {
@@ -14,6 +16,8 @@ const TodoInput = (/*{ isDarkMode }*/) => {
   const [todoTitle, setTodoTitle] = useState("");
   const [dueDate, setDueDate] = useState(getCurrentDate());
 
+  const dispatch = useDispatch();
+
   const isDarkMode = useSelector(state => state.preferencesReducer.isDarkMode);
   
   const handleTodoTitleChange = (e) => {
@@ -24,13 +28,27 @@ const TodoInput = (/*{ isDarkMode }*/) => {
     setDueDate(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(addTodo({
+      id: Math.floor(Math.random() * 100),
+      content: todoTitle,
+      dueDateInMs: dueDate,
+      completed: false
+    }));
+
+    setTodoTitle("");
+    setDueDate(getCurrentDate());
+  }
+
   return (
     <div className={`form-control  ${isDarkMode && "form-control-dark"}`}>
       <div className="checkbox-border-wrap">
         <span className="checkbox"></span>
       </div>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="todoTitle">Add New Todo</label>
         <input
           type="text"
