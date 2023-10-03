@@ -4,7 +4,7 @@ import data from "../data/initialTodos";
 const todoSlice = createSlice({
     name: "todoReducer",
     initialState: {
-        filterStatus: "all",
+        filterStatus: "completed",
         todos: data
     },
     reducers: {
